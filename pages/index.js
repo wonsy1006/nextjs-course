@@ -1,18 +1,11 @@
 import Link from "next/link";
 
-function Home() {
+function HomePage() {
   return (
     <div>
-      <h1>Home</h1>
-      <nav>
-        <ul>
-          <li>
-            <Link href="/events">All Events</Link>
-          </li>
-        </ul>
-      </nav>
+      <h1>The Home Page</h1>
     </div>
   );
 }
 
-export default Home;
+export default HomePage;
