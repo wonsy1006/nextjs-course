@@ -1,15 +1,9 @@
-import { useRouter } from "next/router";
-
-function EventPage() {
-  const router = useRouter();
-
-  console.log(router.query);
-
+function FilteredEventsPage() {
   return (
     <div>
-      <h1>An Event</h1>
+      <h1>Filtered Events</h1>
     </div>
   );
 }
 
-export default EventPage;
+export default FilteredEventsPage;
