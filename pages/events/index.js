@@ -1,23 +1,26 @@
-import Link from "next/link";
+import { Fragment } from "react";
 import { useRouter } from "next/router";
-import { DUMMY_EVENTS } from "../../data/dummy-data";
 
-function Events() {
+import { getAllEvents } from "../../dummy-data";
+import EventList from "../../components/events/event-list";
+import EventsSearch from "../../components/events/events-search";
+
+function AllEventsPage() {
   const router = useRouter();
-  console.log(router.query);
+  const events = getAllEvents();
+
+  function findEventsHandler(year, month) {
+    const fullPath = `/events/${year}/${month}/`;
+
+    router.push(fullPath);
+  }
 
   return (
-    <div>
-      <h1>All Events</h1>
-      <ul>
-        {DUMMY_EVENTS.map((event) => (
-          <li key={event.id}>
-            <Link href={`/events/${event.id}`}>{event.title}</Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <Fragment>
+      <EventsSearch onSearch={findEventsHandler} />
+      <EventList items={events} />
+    </Fragment>
   );
 }
 
-export default Events;
+export default AllEventsPage;
